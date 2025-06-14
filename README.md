@@ -1,6 +1,7 @@
 # Super-AI
 
-Orchestrator
+The orchestrator uses the official `openai` library and expects `OPENAI_API_KEY` in the environment.
+
 
 ## Setup
 Run `npm install` to install dependencies defined in `package.json`.

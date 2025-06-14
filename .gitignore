@@ -1,5 +1,4 @@
-__pycache__/
-venv/
 node_modules/
-package-lock.json
-.env
+*.lock
+bin/
+obj/
