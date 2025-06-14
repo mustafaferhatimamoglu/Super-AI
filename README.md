@@ -1,14 +1,8 @@
 # Super-AI
-
-Python orchestrator for running multiple OpenAI agents. The `superMFI`
-function triggers PCB design, circuit simulation, error analysis and diagram
-generation steps.
+The orchestrator uses the official `openai` library.
+#sss
+Orchestrator
 
 ## Setup
+Run `npm install` to install dependencies defined in `package.json`.
 
-Install dependencies and run the orchestrator:
-
-```bash
-pip install openai
-python orchestrator.py
-```
