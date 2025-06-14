@@ -1,4 +1,5 @@
 # Super-AI
+The orchestrator uses the official `openai` library.
 #sss
 Orchestrator
 
