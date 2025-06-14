@@ -10,5 +10,6 @@ Install dependencies and run the orchestrator:
 
 ```bash
 pip install openai
+export OPENAI_API_KEY=your-key
 python orchestrator.py
 ```

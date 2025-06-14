@@ -2,13 +2,13 @@ import os
 import openai
 import asyncio
 
-# client config
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# async client config
+client = openai.AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # designPCB agent
 async def designPCB(params):
     prompt = f"Design a PCB with these specifications: {params}"
-    response = await openai.Completion.acreate(
+    response = await client.completions.create(
         model="code-davinci-002",
         prompt=prompt,
         max_tokens=150,
@@ -21,7 +21,7 @@ async def designPCB(params):
 # simulateCircuit agent
 async def simulateCircuit(circuit):
     prompt = f"Simulate the following circuit and report issues: {circuit}"
-    response = await openai.Completion.acreate(
+    response = await client.completions.create(
         model="code-davinci-002",
         prompt=prompt,
         max_tokens=150,
@@ -34,7 +34,7 @@ async def simulateCircuit(circuit):
 # analyzeErrors agent
 async def analyzeErrors(simResult):
     prompt = f"Analyze these simulation results for errors: {simResult}"
-    response = await openai.Completion.acreate(
+    response = await client.completions.create(
         model="code-davinci-002",
         prompt=prompt,
         max_tokens=100,
@@ -47,7 +47,7 @@ async def analyzeErrors(simResult):
 # drawCircuitDiagram agent
 async def drawCircuitDiagram(pcbData):
     prompt = f"Generate a detailed circuit diagram for: {pcbData}"
-    response = await openai.Completion.acreate(
+    response = await client.completions.create(
         model="code-davinci-002",
         prompt=prompt,
         max_tokens=150,
