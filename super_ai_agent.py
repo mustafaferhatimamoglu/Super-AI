@@ -1,3 +1,9 @@
+"""Submit text prompts to the Sora interface automatically.
+
+Run ``python -m py_compile super_ai_agent.py`` to ensure the file has no
+syntax errors before execution.
+"""
+
 import pyautogui
 import time
 import os
