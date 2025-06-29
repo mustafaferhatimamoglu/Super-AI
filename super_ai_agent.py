@@ -5,6 +5,7 @@ import os
 PROMPT_FOLDER = "prompts"
 WAIT_AFTER_EACH_STEP = 1  # seconds
 
+
 def find_browser_input_box():
     # Not robust, replace with image-based detection later
     pyautogui.hotkey("ctrl", "l")  # Go to address bar
@@ -12,10 +13,12 @@ def find_browser_input_box():
     pyautogui.press("enter")  # Focus input
     time.sleep(WAIT_AFTER_EACH_STEP)
 
+
 def submit_prompt(prompt_text):
     pyautogui.write(prompt_text, interval=0.01)
     pyautogui.press("enter")
     time.sleep(WAIT_AFTER_EACH_STEP)
+
 
 def main():
     print("🧠 Super-AI Agent started.")
@@ -39,6 +42,7 @@ def main():
             time.sleep(5)
 
         time.sleep(10)
+
 
 if __name__ == "__main__":
     main()
