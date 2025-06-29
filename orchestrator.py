@@ -5,6 +5,7 @@ import asyncio
 # client config
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+
 # designPCB agent
 async def designPCB(params):
     prompt = f"Design a PCB with these specifications: {params}"
@@ -17,6 +18,7 @@ async def designPCB(params):
     print("# call designPCB")
     print(output)
     return output
+
 
 # simulateCircuit agent
 async def simulateCircuit(circuit):
@@ -31,6 +33,7 @@ async def simulateCircuit(circuit):
     print(output)
     return output
 
+
 # analyzeErrors agent
 async def analyzeErrors(simResult):
     prompt = f"Analyze these simulation results for errors: {simResult}"
@@ -44,6 +47,7 @@ async def analyzeErrors(simResult):
     print(output)
     return output
 
+
 # drawCircuitDiagram agent
 async def drawCircuitDiagram(pcbData):
     prompt = f"Generate a detailed circuit diagram for: {pcbData}"
@@ -56,6 +60,7 @@ async def drawCircuitDiagram(pcbData):
     print("# call drawCircuitDiagram")
     print(output)
     return output
+
 
 # orchestrator logic
 async def superMFI(materialsList, motorSpecs, powerConfig):
@@ -90,4 +95,3 @@ if __name__ == "__main__":
             {"voltage": "12V"},
         )
     )
-
