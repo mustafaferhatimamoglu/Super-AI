@@ -9,7 +9,7 @@ generation steps.
 Install dependencies and run the orchestrator:
 
 ```bash
-pip install openai
+pip install -r requirements.txt
 python orchestrator.py
 ```
 
