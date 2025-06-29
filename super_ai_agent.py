@@ -1,3 +1,4 @@
+
 """Submit text prompts to the Sora interface automatically.
 
 The script reads ``.txt`` files from the ``prompts/`` folder and types each
