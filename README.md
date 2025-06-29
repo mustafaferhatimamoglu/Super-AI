@@ -24,3 +24,17 @@ python orchestrator.py
 
 The built-in example triggers the `superMFI` workflow and prints each step's output to the console. There are currently no automated tests, but running `pytest` verifies the environment is set up correctly.
 
+
+## Browser automation example
+
+`selenium_chatgpt.py` demonstrates how to send a prompt to the ChatGPT web
+interface using Selenium. Install the extra dependency and run the script with a
+message:
+
+```bash
+pip install -r requirements.txt
+python selenium_chatgpt.py "Hello"
+```
+
+The script opens a browser window and waits for you to log in to ChatGPT if
+necessary, then prints the assistant's response to the console.
