@@ -1,0 +1,60 @@
+import pyautogui
+import pyperclip
+import time
+import pygetwindow as gw
+import subprocess
+
+def find_chatgpt_window():
+    for w in gw.getWindowsWithTitle('ChatGPT'):
+        if w.isActive:
+            return w
+    return None
+
+def read_last_message():
+    # Sayfa tasarımına göre ayarlanabilir
+    pyautogui.moveTo(600, 600)  # Sohbet alanı
+    pyautogui.tripleClick()
+    pyautogui.hotkey('ctrl', 'c')
+    time.sleep(0.2)
+    return pyperclip.paste()
+
+def send_message(message):
+    pyautogui.moveTo(600, 950)  # Mesaj yazma kutusu
+    pyautogui.click()
+    pyperclip.copy(message)
+    pyautogui.hotkey('ctrl', 'v')
+    time.sleep(0.1)
+    pyautogui.press('enter')
+
+def run_command_from_text(text):
+    try:
+        if "notepad" in text.lower():
+            subprocess.Popen("notepad.exe")
+            return "Notepad launched"
+        elif "chrome" in text.lower():
+            subprocess.Popen("chrome.exe")
+            return "Chrome launched"
+        # Buraya yeni komutlar eklenebilir
+        return "No known command matched."
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+def main_loop():
+    last = ""
+    while True:
+        win = find_chatgpt_window()
+        if win:
+            msg = read_last_message()
+            if msg != last:
+                print("Yeni mesaj:", msg)
+                result = run_command_from_text(msg)
+                send_message(f"Uygulandı: {result}")
+                last = msg
+        else:
+            print("ChatGPT sekmesi aktif değil.")
+        time.sleep(5)
+
+if __name__ == "__main__":
+    print("Agent başlatıldı...")
+    time.sleep(3)
+    main_loop()
